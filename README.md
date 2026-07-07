@@ -81,19 +81,18 @@ elastica:
 ```
 
 Extension does not pass any unset values to elastica so elastica defaults just work.
-Take a look to [Elastica docs](https://elastica-docs.readthedocs.io/en/latest/client.html#client-configurations).
+Take a look at [Elastica docs](https://elastica-docs.readthedocs.io/en/latest/client.html#client-configurations).
 
-In docker environment you should use `host: elasticsearch` and `port: 9200` for example.
+In a Docker environment, you can use `host: elasticsearch` and `port: 9200`, for example.
 
 ## Usage
 
-Extension registers `Contributte\Elastica\Client` to DI container.
+The extension registers `Contributte\Elastica\Client` in the DI container, so you can inject it into your services.
 
 ```php
 class YourService
 {
-	/** @var \Contributte\Elastica\Client */
-	private $elasticaClient;
+	private Contributte\Elastica\Client $elasticaClient;
 
 	public function __construct(Contributte\Elastica\Client $elastica)
 	{
